@@ -5,7 +5,7 @@ import { Navigate } from '@tanstack/react-router';
 const ProtectedRoutes = ({children, permission, allowGuest = false}: 
     {children:React.ReactNode, permission?: string[], allowGuest?: boolean}) => {
     const {user, hasPermission} = useAuth();
-    console.log("User: ", user);
+    console.log("User: ", user, "AllowGuest: ", allowGuest);
     
     // Allow guest user if `allowGuest` is true
     if(allowGuest && !user) {
