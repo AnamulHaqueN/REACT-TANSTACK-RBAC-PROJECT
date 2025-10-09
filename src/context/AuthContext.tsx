@@ -12,7 +12,7 @@ export interface User {
 interface AuthContextType {
     user: User | null;
     login: (UserData: User) => void;
-    logOut: () => void;
+    logout: () => void;
     hasPermission: (permission: string) => boolean;
 }
 
@@ -24,7 +24,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     const login = (userData: User) => {
         setUser(userData);
     };
-    const logOut = () => {
+    const logout = () => {
         setUser(null);
     };
     const hasPermission = (permission: string) => {
@@ -32,7 +32,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     };
 
     return (
-        <AuthContext.Provider value={{user, login, logOut, hasPermission}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{user, login, logout, hasPermission}}>{children}</AuthContext.Provider>
     )
 }
 
